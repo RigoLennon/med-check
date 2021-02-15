@@ -49,30 +49,41 @@ const Main = () => {
   const [value, setValue] = React.useState(0);
 
   return (
-    <div>
-      <TabPanel value={value} index={0}>
-        <VRegister />
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        <Status />
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-        <Profile />
-      </TabPanel>
-      <Container fixed>
-      <Grid container direction="row" justify="center" alignItems="flex-end" style={{ height: '28em'}}>
-      <BottomNavigation
-        value={value}
-        onChange={(event, newValue) => {
-          setValue(newValue);
-        }}
-        showLabels
-        className={classes.root}
-      >
-        <BottomNavigationAction label="Registar datos" icon={<AddCircleOutlineIcon />} />
-        <BottomNavigationAction label="Mis datos" icon={<FavoriteBorderIcon />} />
-        <BottomNavigationAction label="Perfil" icon={<AccountCircleIcon />} />
-      </BottomNavigation>
+    <div style={{height: '88vh'}}>
+      <Container container spacing={3} style={{height: '100%'}}>
+        <Grid item xs >
+          <TabPanel value={value} index={0}>
+            <VRegister />
+          </TabPanel>
+        </Grid>
+        <Grid item xs>
+          <TabPanel value={value} index={1}>
+            <Status />
+          </TabPanel>
+        </Grid>
+        <Grid item xs>
+          <TabPanel value={value} index={2}>
+            <Profile />
+          </TabPanel>
+        </Grid>
+      </Container>
+      
+      <Container>
+      <Grid container spacing={3} direction="row" justify="center" alignItems="flex-end">
+        <Grid item xs>
+          <BottomNavigation
+          value={value}
+          onChange={(event, newValue) => {
+            setValue(newValue);
+          }}
+          showLabels
+          className={classes.root}
+        >
+          <BottomNavigationAction label="Registar datos" icon={<AddCircleOutlineIcon />} />
+          <BottomNavigationAction label="Mis datos" icon={<FavoriteBorderIcon />} />
+          <BottomNavigationAction label="Perfil" icon={<AccountCircleIcon />} />
+        </BottomNavigation>
+        </Grid>
       </Grid>
     </Container>
     </div>
